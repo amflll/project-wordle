@@ -8,14 +8,15 @@ const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
-function Game() {
-  const [word, setWord] = React.useState("");
+function Game({ handleGuess }) {
+  const [word, setWord] = React.useState([]);
 
   return <>
   <form 
     className="guess-input-wrapper"
     onSubmit={(event) => {
       event.preventDefault();
+      handleGuess(word);
       console.log(word);
       setWord('');
     }}
