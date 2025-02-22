@@ -1,20 +1,18 @@
 import Game from '../Game';
 import Header from '../Header';
-import Guesses from '../Guesses/Guesses';
-
+import GuessInput from '../GuessInput/GuessInput';
 import React from 'react';
 
 function App() {
-  const [guess, setGuess] = React.useState([]);
+  const [guesses, setGuesses] = React.useState([]);
 
   function handleGuess(word) {
     const newGuess = {
-      word,
-      id: Math.random(),
+      word
     };
 
-    const nextGuess = [...guess, newGuess];
-    setGuess(nextGuess);
+    const nextGuesses = [...guesses, newGuess];
+    setGuesses(nextGuesses);
   }
 
   return (
@@ -22,10 +20,8 @@ function App() {
       <Header />
 
       <div className="game-wrapper">
-        <Guesses 
-          guess={guess}/>
-        <Game 
-          handleGuess={handleGuess} />
+        <GuessInput guess={guesses} />
+        <Game handleGuess={handleGuess} />
       </div>
     </div>
   );
