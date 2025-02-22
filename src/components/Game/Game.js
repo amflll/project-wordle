@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Game({ handleGuess, answer }) {
+function Game({ handleGuess, answer, gameStatus }) {
   const [word, setWord] = React.useState("");
 
   return (
@@ -9,7 +9,6 @@ function Game({ handleGuess, answer }) {
       onSubmit={(event) => {
         event.preventDefault();
         handleGuess(word);
-        console.log(word);
         setWord('');
       }}
     >
@@ -22,6 +21,7 @@ function Game({ handleGuess, answer }) {
         onChange={event => {
           setWord((event.target.value.toUpperCase()));
         }}
+        disabled={gameStatus !== 'running'} 
       />
     </form>
   );
