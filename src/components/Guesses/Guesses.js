@@ -2,7 +2,7 @@ import React from 'react';
 
 function Guesses({ guess }) {
   return (
-  <div>
+  <div class="guess-results">
       {guess.map(({ id, word }) => (
             <p className="guess" key={id}>{word}</p>
           ))}

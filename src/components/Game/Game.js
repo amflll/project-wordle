@@ -9,7 +9,7 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game({ handleGuess }) {
-  const [word, setWord] = React.useState([]);
+  const [word, setWord] = React.useState("");
 
   return <>
   <form 
@@ -21,14 +21,14 @@ function Game({ handleGuess }) {
       setWord('');
     }}
     >
-    <label for="guess-input">Enter guess:</label>
+    <label htmlFor="guess-input">Enter guess:</label>
   <input 
     id="guess-input" 
     type="text" 
     pattern="[A-Z]{5}" //pattern attribute, 5 characters and must be uppercase 
     value={word}
           onChange={event => {
-            setWord((event.target.value).toUpperCase());
+            setWord((event.target.value.toUpperCase()));
           }}
     />
 </form>
